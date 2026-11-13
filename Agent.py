@@ -1,4 +1,4 @@
-class agent:
+class Agent:
     
     strategie : Strategie;
     coupsPerso : list;
