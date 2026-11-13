@@ -10,7 +10,7 @@ class Agent:
 
 
 
-    def __init__(strat,coupsPerso,coupsAdv):
+    def __init__(self, strat,coupsPerso,coupsAdv):
         self.strategie=strat;
         self.coupsPerso = coupsPerso;
         self.coupsAdv=coupsAdv;
