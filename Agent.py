@@ -1,3 +1,5 @@
+from Strategie import *
+
 class Agent:
     
     strategie : Strategie;
@@ -8,7 +10,7 @@ class Agent:
 
 
 
-    def __innit__(strat,coupsPerso,coupsAdv):
+    def __init__(strat,coupsPerso,coupsAdv):
         self.strategie=strat;
         self.coupsPerso = coupsPerso;
         self.coupsAdv=coupsAdv;

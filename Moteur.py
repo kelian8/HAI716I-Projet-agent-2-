@@ -1,11 +1,11 @@
-from Agent.py import *
+from Agent import *
 
 class Moteur:
     agent1 : Agent;
     agent2 : Agent;
     jeu : list;
 
-    def __innit__(self, a1, a2, jeu):
+    def __init__(self, a1, a2, jeu):
         self.agent1 = a1;
         self.agent2 = a2;
         self.jeu=jeu;
@@ -17,23 +17,23 @@ class Moteur:
             print(f"Agent 2 stratégie : {self.agent2.strategie}\n")
 
             #les agents décident de leur choix en fonction de leur strategie respective
-            choix1 = self.agent1.strategie.decide();
-            choix2 = self.agent2.strategie.decide();
+            choix1 = self.agent1.jouer(self.jeu);
+            choix2 = self.agent2.jouer(self.jeu);
 
             print(f"l'agent 1 a choisi l'option {choix1}\n");
             print(f"l'agent 2 a choisi l'option {choix2}\n");
 
             #on enregistre les scores respectifs en fonctions des décisions prises par les agents
-            score1 = jeu[choix2][choix1][0];
-            score2 = jeu[choix2][choix1][1];
+            score1 = self.jeu[choix2][choix1][0];
+            score2 = self.jeu[choix2][choix1][1];
 
             """
             structure d'un jeu : 
-                                            [
-                                            j se tait           j avoue
-                                i se tait [  (si,sj)      ,     (si,sj)   ]
-                                i avoue   [  (si,sj)      ,     (si,sj)   ]
-                                                                            ]
+                                          [
+                                            j se tait           j avoue            traduction pythons sous forme de dico de dico        [
+                                i se tait [  (si,sj)      ,     (si,sj)   ]                          =                                  "D"=["D"=(s1,s2), "C" = (s1,s2)],
+                                i avoue   [  (si,sj)      ,     (si,sj)   ]                                                             "C"=["D"=(s1,s2), "C" = (s1,s2)]
+                                                                          ]                                                              ]
             """
 
             print(f"l'agent 1 a remporté {score1} point(s)\n");
@@ -54,7 +54,7 @@ class Moteur:
             self.agent2.coupsPerso.append(choix2);
             self.agent2.coupsAdv.append(choix1);
 
-            printf("---------------------------------------------------------\n");
+            print("---------------------------------------------------------\n");
         
         print("Fin de partie!\n")
 
