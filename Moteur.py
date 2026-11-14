@@ -11,10 +11,11 @@ class Moteur:
         self.jeu=jeu;
 
     def jouer_partie(self, n):
+        print(f"Début  de la partie\n");
         for i in range(0,n):
-            print(f"Début partie n°{i}\n");
-            print(f"Agent 1 stratégie : {self.agent1.strategie}\n")
-            print(f"Agent 2 stratégie : {self.agent2.strategie}\n")
+            print(f"Début du tour n°{i+1}\n");
+            print(f"Agent 1 stratégie : {self.agent1.strategie.nom}\n")
+            print(f"Agent 2 stratégie : {self.agent2.strategie.nom}\n")
 
             #les agents décident de leur choix en fonction de leur strategie respective
             choix1 = self.agent1.jouer(self.jeu);
@@ -59,13 +60,16 @@ class Moteur:
         print("Fin de partie!\n")
 
         if self.agent2.score<self.agent1.score :
-            print(f"agent 1 avec strategie {self.agent1.strategie} a gagné!\n");
+            print(f"agent 1 avec strategie {self.agent1.strategie.nom} a gagné!\n");
+            print("---------------------------------------------------------\n");
             return self.agent1.strategie;
 
         elif self.agent1.score<self.agent2.score :
-            print(f"agent 2 avec strategie {self.agent2.strategie} a gagné!\n");
+            print(f"agent 2 avec strategie {self.agent2.strategie.nom} a gagné!\n");
+            print("---------------------------------------------------------\n");
             return self.agent2.strategie;
 
         else: 
             print("égalité entre les deux stratégies personne ne remporte\n");
+            print("---------------------------------------------------------\n");
             return None;
