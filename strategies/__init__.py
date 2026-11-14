@@ -1,0 +1,1 @@
+#permet de tratier le dossier strategie comme un package
