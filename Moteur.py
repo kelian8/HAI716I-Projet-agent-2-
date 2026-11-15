@@ -1,3 +1,5 @@
+import random
+
 from Agent import *
 
 class Moteur:
@@ -20,6 +22,15 @@ class Moteur:
             #les agents décident de leur choix en fonction de leur strategie respective
             choix1 = self.agent1.jouer(self.jeu);
             choix2 = self.agent2.jouer(self.jeu);
+
+            #a decommenter pour la modif bruit
+            """#inversion aleatoire de chaque coup avec 5% de proba
+            if random.random() < 0.05:
+                choix1 = "D" if choix1 == "C" else "C"
+
+            if random.random() < 0.05:
+                choix2 = "D" if choix2 == "C" else "C"""
+
 
             print(f"l'agent 1 a choisi l'option {choix1}\n");
             print(f"l'agent 2 a choisi l'option {choix2}\n");
